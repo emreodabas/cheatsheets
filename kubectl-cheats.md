@@ -4,7 +4,7 @@
 
 cat <<EOF | kubectl apply -f -  //press enter
 
-  <RESOURCE DEFINITION>         //press enter  
+  $(RESOURCE DEFINITION)         //press enter  
   
 EOF                             //press enter    
 
