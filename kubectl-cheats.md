@@ -1,5 +1,12 @@
 # kubectl-cheatsheet
 
+## apply resource without file 
+
+cat <<EOF | kubectl apply -f -  //press enter
+  <RESOURCE DEFINITION>         //press enter                                   
+EOF                             //press enter    
+
+
 ## port-forward
 
 kubectl port-forward redis-master-765d459796-258hz 6379:6379 
