@@ -2,7 +2,9 @@
 ## remove all docker images with filter 
 
 docker rmi $(docker images -q)
+
 docker rmi $(docker images |grep 'imagename')
+
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 
 ## docker run with custom entrypoint
