@@ -17,7 +17,7 @@ kubectl port-forward redis-master-765d459796-258hz 6379:6379
 ## grant cluster-admin to your current identity
  kubectl create clusterrolebinding emreodabas-cluster-admin-binding --clusterrole=cluster-admin --user=emre.odabas@comodo.com
 
-## drain with force
+## drain with grace
 kubectl drain --ignore-daemonsets gke-abc-dev-kubernet-pool-4cpu-15gb-283f2af6-9x9j --delete-local-data --grace-period=10 
 
 ## get&delete Evicted 
