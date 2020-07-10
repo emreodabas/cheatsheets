@@ -53,4 +53,9 @@ kubectl get ns -o json | jq -r '.items[] | select(.metadata.creationTimestamp > 
 kubectl exec -ti $(kubectl get pods -A -l domainName=abc.com -o jsonpath='{.items[0].metadata.name}{" -n "}{.items[0].metadata.namespace}') -- /bin/sh
 
 
+## patch service for changing type
+
+kubectl patch svc loki -p '{"spec": {"type": "NodePort"}}'
+
+
 
