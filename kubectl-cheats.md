@@ -59,3 +59,16 @@ kubectl patch svc loki -p '{"spec": {"type": "NodePort"}}'
 
 
 
+## dynamic annotate & scale & scaleback
+
+annotate first 
+kubectl get deploy -o jsonpath='{range .items[*]}{"kubectl annotate deploy "}{@.metadata.name}{" previous-size="}{@.spec.replicas}{" \n"}{end}' | sh
+
+scale to 0
+kubectl scale --replicas=0 $(kubectl get deploy -o name) 
+
+scaleback 
+k get deploy -o jsonpath='{range .items[*]}{"kubectl scale deploy "}{@.metadata.name}{" --replicas="}{.metadata.annotations.previous-size}{"\n"}{end}' | sh
+
+
+
